@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_solicitud_tramite,Acceso a Solicitud del tramite extincion,model_tram_sol_extincion,solicitud_tramite_group_user,1,1,1,0
+access_solicitud_tramite_lectura,Acceso a Solicitud del tramite extincion lectura,model_tram_sol_extincion,solicitud_lectura_tramite_group_user,1,0,0,0
+
+access_requerimiento_tramite,Acceso a Requerimiento del tramite extincion ,model_tram_req_extincion,requerimiento_group_user,1,1,1,0
+access_analisis_tramite,Acceso a Analisis del tramite extincion,model_tram_ana_extincion,analisis_group_user,1,1,1,0
+access_ficha_tramite,Acceso a Ficha ejecutiva extincion,model_tram_fichaejecutiva_extincion,ficha_group_user,1,1,1,0
+
+access_tramite_gestion_tramite,Acceso a Gestion Tramite extincion,model_tramite_gestion_extincion,gestion_tramites_group_user,1,1,0,0
+access_inserta_gestion_tramite,Inserta a Gestion Tramite extincion,model_tramite_gestion_extincion,solicitud_tramite_group_user,1,1,1,0
+access_inserta_tiempo_respuesta_estadosfin,Inserta a Tiempo de respuesta por etapa extincion,model_tiempos_tramite_extincion,gestion_tramites_group_user,1,1,1,0
+access_tiempo_respuesta,Acceso a Tiempo de respuesta por etapa extincion,model_tiempos_tramite_extincion,solicitud_tramite_group_user,1,1,1,0
+

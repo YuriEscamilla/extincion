@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="formato_acta_sesion_extincion_report">
+        <xpath expr="//div[@class='page']" position="attributes">
+                <attribute name="style">font-family: 'Source Sans Pro', sans-serif;</attribute>
+        </xpath>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                          <div>
+                            <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/encabezado.jpg" width="120%" style="margin-left:-50px;margin-top:-10mm;"/>
+                        </div>
+                        <div style="width:80%%;text-align:left;position:relative;right:-80px;font-family:Source Sans Pro; font-size:16px;">
+                            <p>
+                                <center>
+                                    <b>ACTA DE SESIÓN EXTRAORDINARIA DE PATRONATO DE
+                                        <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                    </b>
+                                </center>
+                            </p>
+                        </div>
+                        <div style="position:relative; widht:100%%;text-align:justify;">
+
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                En la Ciudad de México, siendo las
+                                <t t-esc="o.hours"/>
+                                horas,con
+                                <t t-esc="o.minutes"/>
+                                minutos del día
+                                <t t-esc="o.day"/>
+                                de
+                                <t t-esc="o.month"/>
+                                del año<t t-esc="o.year_session"/>, presentes los Patronos de
+                                <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                en el domicilio social que ocupa ésta, ubicado en<t t-esc="o.located_in_liq"/>,
+                                se reunieron a fin de celebrar una <b>SESIÓN EXTRAORDINARIA DE PATRONATO</b>, a la cual
+                                fueron debidamente convocados. En razón de lo anterior, y toda vez que se cuenta con el
+                                Quorum necesario para celebrar la presente Sesión, considerando la lista de asistencia
+                                que a la presente se anexa y de conformidad con los estatutos de
+                                <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                , se da inicio a la presente asumiendo la Presidencia de esta Sesión, el C.
+                                <t t-esc="o.session"/>
+                                quién desempeña el cargo de
+                                <t t-esc="o.position"/>
+                                de dicha Institución.
+                            </p>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Acto seguido, se designa como Secretario a la C.<t t-esc="o.secretary"/>, quién
+                                desempeña el cargo de
+                                <t t-esc="o.position_two"/>
+                                de la Institución.
+                            </p>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Consecuentemente, el Presidente declara legalmente instalada la <b>SESIÓN
+                                EXTRAORDINARIA
+                            </b> de
+                                <b>
+                                    <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                </b>
+                                sometiendo a los Patronos presentes el siguiente:
+                                <br/>
+                                <br/>
+                                <b>--------------------------------------------------------------------ORDEN DEL
+                                    DÍA-------------------------------------------------------
+                                </b>
+                            </p>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <b>1.</b>
+                                Presentación, discusión y aceptación del Orden del Día.
+                                <br/>
+                                <b>2.</b>
+                                Presentación, discusión y, en su caso, aprobación del balance general y de los estados
+                                financieros de la Institución que muestran las cifras acumuladas al
+                                <t t-if="o.cumulative_figures">
+                                    <t t-esc="o.cumulative_figures.strftime('%d de %B del año %Y')"
+                                       t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </t>
+                                <b>(DEBEN SER AL MES INMEDIATO ANTERIOR A LA SOLICITUD DE EXTINCIÓN).</b>
+                                <br/>
+                                <b>3.</b>
+                                Discusión y, en su caso, aprobación para iniciar el proceso de extinción y liquidación
+                                de la Institución
+                                <br/>
+                                <b>4.</b>
+                                Nombramiento de liquidador por parte de la Institución y el otorgamiento de los Poderes
+                                Generales y Especiales a éste y de aquel que designe la Junta de Asistencia Privada del
+                                Distrito Federal, para el cumplimiento de las funciones inherentes a sus cargos, además,
+                                de las facultades para pleitos y cobranzas, actos de administración, cambiario y de
+                                dominio y todas aquellas que requieran clausula especial conforme a las leyes para
+                                llevar a cabo el procedimiento liquidatario de la Institución de conformidad con las
+                                disposiciones legales aplicables.
+                                <br/>
+                                <b>5.</b>
+                                Designación de Delegados, para que concurran ante la Junta de Asistencia Privada del
+                                Distrito Federal, y lleven a cabo los trámites, desahogo de requerimientos, aclaraciones
+                                y en general, todas las gestiones necesarias para proceder a la extinción de la
+                                institución.
+                                <br/>
+                                <b>6.</b>
+                                Señalamiento de domicilio y personas para oír y recibir notificaciones y/o documentos
+                                relativos al procedimiento de extinción y liquidación de
+                                <b><t t-esc="o.RefidSolicitudM.get_company_name()"/></b>
+                            </p>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                El Orden del Día fue desahogado en los siguientes términos:
+                                <br/>
+                                <b>1. PRESENTACIÓN, DISCUSIÓN Y ACEPTACIÓN DEL ORDEN DEL DÍA.</b>
+                                <br/>
+                                En el desahogo del primer punto del Orden del Día, los Patronos presentes están de
+                                acuerdo en discutir y, en su caso, aprobar los puntos del Orden del Día propuestos por
+                                lo que se emite el siguiente:
+                                <br/>
+                                <br/>
+                                <b>
+                                    -----------------------------------------------------------------------ACUERDO-------------------------------------------------------------
+                                </b>
+                                <br/>
+
+                                Se aprueba por <b>(UNANIMIDAD/MAYORIA)</b> de votos, el Orden del Día por lo que se
+                                procede a su desahogo.
+                                <br/>
+                                <b>2. PRESENTACIÓN, DISCUSIÓN Y, EN SU CASO, APROBACIÓN DEL BALANCE GENERAL Y DE LOS
+                                    ESTADOS FINANCIEROS DE LA INSTITUCIÓN, QUE MUESTRAN LAS CIFRAS ACUMULADAS AL
+                                    <t t-if="o.cumulative_figures_two">
+                                        <t t-esc="o.cumulative_figures_two.strftime('%d DE %B DEL AÑO %Y')"
+                                           t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                    </t>
+                                    (DEBEN SER AL MES INMEDIATO ANTERIOR A LA SOLICITUD DE EXTINCIÓN)
+                                </b>
+                                <br/>
+                                En el desahogo del segundo punto del Orden del Día, el (la)
+                                <t t-esc="o.order_two"/>
+                                hace entrega a los miembros del Patronato presentes, una copia de los estados
+                                financieros que muestran las cifras acumuladas al
+                                <t t-if="o.cumulative_figures_tree">
+                                    <t t-esc="o.cumulative_figures_tree.strftime('%d de %B del año %Y')"
+                                       t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </t>
+                                , para su examen, discusión, observaciones y en su caso, aprobación de los mismos.
+                                <br/>
+                                Los miembros del Patronato previo análisis de los mismos y al haber realizado los
+                                comentarios pertinentes, los aprueban en sus términos, por lo que, por
+                                <t t-esc="o.votes"/>
+                                de votos, se emite el siguiente
+                                <br/>
+                                <br/>
+                                <b>
+                                    -----------------------------------------------------------------------ACUERDO-------------------------------------------------------------
+                                </b>
+                                <br/>
+                                <br/>
+                                Se aprueban los estados financieros que muestran las cifras acumuladas al
+                                <t t-if="o.cumulative_figures_four">
+                                    <t t-esc="o.cumulative_figures_four.strftime('%d de %B del año %Y')"
+                                       t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </t>
+                                <b>(DEBEN SER AL MES INMEDIATO ANTERIOR A LA SOLICITUD DE EXTINCIÓN).</b>
+                                <br/>
+
+                                <b>3.- DISCUSIÓN Y EN SU CASO APROBACIÓN PARA INICIAR EL PROCEDIMIENTO DE EXTINCIÓN Y
+                                    LIQUIDACIÓN DE LA INSTITUCIÓN.
+                                </b>
+                                <br/>
+                                En desahogo del tercer punto del orden del día, el Presidente de la Sesión,
+                                <t t-esc="o.president_session"/>
+                                expuso a los presentes la necesidad de extinguir la Institución debido a
+                                <t t-esc="o.justify_session"/>
+                                que vive actualmente ésta; así como, la carencia de recursos para cumplir con sus
+                                objetivos establecidos en los Estatutos, actualizándose así la hipótesis señalada en la
+                                fracción I del artículo 30 de la Ley de Instituciones de Asistencia Privada para el
+                                Distrito Federal. Por lo que hoy en día, nos vemos en la lamentable necesidad de tener
+                                que decidir proceder a la extinción y liquidación de nuestra Institución. Los miembros
+                                del Patronato manifiestan que tienen pleno conocimiento de la situación económica que
+                                guarda la Institución y que, en virtud de que ésta ha ocasionado la imposibilidad para
+                                dar cumplimiento a las actividades establecidas en los Estatutos, por lo que, por
+                                unanimidad de votos, emiten el siguiente:
+                                <br/>
+                                <br/>
+                                <b>
+                                    -----------------------------------------------------------------------ACUERDO-------------------------------------------------------------
+                                </b>
+                                <br/>
+                                <br/>
+                                Se aprueba proceder a la extinción y liquidación de <b>HOGAR PROVIDENCIA DON VASCO,
+                                I.A.P.,
+                            </b> en términos de lo establecido en los artículos 30 fracción I de la Ley de Instituciones
+                                de Asistencia Privada para el Distrito Federal.
+                                <br/>
+                                <b>4.- NOMBRAMIENTO DE LIQUIDADOR POR PARTE DE LA INSTITUCIÓN Y EL OTORGAMIENTO DE LOS
+                                    PODERES GENERALES Y ESPECIALES A ÉSTE Y AQUEL QUE DESIGNE LA JUNTA DE ASISTENCIA
+                                    PRIVADA DEL DISTRITO FEDERAL, PARA EL CUMPLIMIENTO DE LAS FUNCIONES INHERENTES A SUS
+                                    CARGOS, ADEMÁS, DE LAS FACULTADES PARA PLEITOS COBRANZAS, ACTOS DE ADMINISTRACIÓN,
+                                    CAMBIARIO Y DE DOMINIO Y TODAS AQUELLAS QUE REQUIERAN CLAUSULA ESPECIAL CONFORME A
+                                    LAS LEYES PARA LLEVAR A CABO EL PROCEDIMIENTO LIQUIDATORIO DE LA INSTITUCIÓN.
+                                </b>
+                                <br/>
+                                En desahogo del cuarto punto del orden del día, el Presidente de la Sesión,<t
+                                    t-esc="o.president_session_point_four"/>, expuso a los presentes que una vez que el
+                                Consejo Directivo de la Junta de Asistencia Privada del Distrito Federal, resuelva el
+                                inicio del procedimiento de extinción de la Institución y ordene proceder a su
+                                liquidación, se debe designar persona que funja como liquidador por parte de
+                                <b>
+                                    <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                </b>
+                                , como lo disponen los artículos 33 de la Ley de Instituciones de Asistencia Privada
+                                para el Distrito Federal y 25 de su Reglamento. Atento a ello, se propone designar como
+                                liquidador por parte de ésta a
+                                <t t-esc="o.liquidator_design"/>
+                                , quien cumple con los requisitos establecidos en el artículo 36 de la Ley de
+                                Instituciones de Asistencia Privada para el Distrito Federal. Asimismo, se hace del
+                                conocimiento de los presentes, que el liquidador designado por parte de la Institución
+                                así como el que se sirva nombrar la Junta de Asistencia Privada del Distrito Federal,
+                                deberán contar con los Poderes Generales y Especiales para el cumplimiento de las
+                                funciones inherentes al cargo, además, de las facultades para pleitos y cobranzas, actos
+                                de administración, de dominio y poder cambiario tan amplio como sea necesario para el
+                                buen desempeño de su encargo, a efecto de que puedan otorgar, emitir, suscribir, con
+                                cualquier carácter, así como avalar y negociar en cualquier forma toda clase de títulos
+                                y operaciones de crédito, en los términos del artículo noveno de la Ley General de
+                                Títulos y Operaciones de Crédito, con las únicas limitaciones que prevé la Ley de
+                                Instituciones de Asistencia Privada para el Distrito Federal. Asimismo, se otorga a los
+                                liquidadores, facultad para abrir y cerrar cuentas bancarias a nombre de la Institución,
+                                librar en las mismas y designar personas que libren contra ellas, además de todas
+                                aquellas que requieran clausula especial conforme a las leyes para llevar a cabo el
+                                procedimiento liquidatario de la Institución de conformidad con las disposiciones
+                                legales aplicables. Atento a ello, y por unanimidad de votos, se emite el siguiente:
+                                <br/>
+                                <br/>
+                                <b>
+                                    -----------------------------------------------------------------------ACUERDO-------------------------------------------------------------
+                                </b>
+                                <br/>
+                                <br/>
+                                Se designa como liquidador por parte de
+                                <b>
+                                    <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                </b>
+                                a
+                                <t t-esc="o.appointed_liquidator"/>
+                                quien cumple con los requisitos establecidos en el artículo 36 de la Ley de
+                                Instituciones de Asistencia Privada para el Distrito Federal. El Liquidador designado
+                                por parte de
+                                <b>
+                                    <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                </b>
+                                , así como el liquidador que en su momento se designe por parte de la Junta de
+                                Asistencia Privada del Distrito Federal y con el objeto de que éstos estén en
+                                posibilidad de ejercer su cargo conferido, se les otorgan los Poderes Generales y
+                                Especiales para el cumplimiento de las funciones inherentes al cargo, además, de las
+                                facultades para pleitos y cobranzas, actos de administración, de dominio y poder
+                                cambiario tan amplio como sea necesario para el buen desempeño de su encargo, a efecto
+                                de que puedan otorgar, emitir, suscribir, con cualquier carácter, así como avalar y
+                                negociar en cualquier forma toda clase de títulos y operaciones de crédito, en los
+                                términos del artículo noveno de la Ley General de Títulos y Operaciones de Crédito, con
+                                las únicas limitaciones que prevé la Ley de Instituciones de Asistencia Privada para el
+                                Distrito Federal. Además de la facultad para abrir y cerrar cuentas bancarias a nombre
+                                de la Institución, librar en las mismas y designar personas que libren contra ellas,
+                                además de todas aquellas que requieran clausula especial conforme a las leyes para
+                                llevar a cabo el procedimiento liquidatario de la Institución de conformidad con las
+                                disposiciones legales aplicables.
+                                <br/>
+                                <b>5. DESIGNACIÓN DE DELEGADOS, PARA QUE CONCURRAN ANTE LA JUNTA DE ASISTENCIA PRIVADA
+                                    DEL DISTRITO FEDERAL, Y LLEVEN A CABO LOS TRÁMITES, DESAHOGO DE REQUERIMIENTOS,
+                                    ACLARACIONES Y EN GENERAL, TODAS LAS GESTIONES NECESARIAS PARA PROCEDER A LA
+                                    EXTINCIÓN DE LA INSTITUCIÓN.
+                                </b>
+                                <br/>
+                                En desahogo del quinto punto del Orden del Día, el Presidente de la Sesión
+                                <t t-esc="o.president_session_point_five"/>
+                                manifiesta que es conveniente designar, “Delegados Especiales” de esta sesión que
+                                cuenten con <b>Poder para Actos de Administración,</b> que se ocupen de llevar a cabo
+                                los trámites, desahogo de requerimientos, aclaraciones que en su caso, realice la Junta
+                                de Asistencia Privada del Distrito Federal, y en general, todas las gestiones necesarias
+                                ante dicha Dependencia, para proceder a la extinción de la institución. Por lo que los
+                                presentes por unanimidad de votos aprueban el siguiente:
+                                <br/>
+                                <br/>
+                                <b>
+                                    -----------------------------------------------------------------------ACUERDO-------------------------------------------------------------
+                                </b>
+                                <br/>
+                                <br/>
+                                Se designa al (los)<t t-esc="o.delegates"/>, como Delegado(s) Especial(es) para que
+                                concurra(n) conjunta o indistintamente ante la Junta de Asistencia Privada del Distrito
+                                Federal, a llevar a cabo los trámites, desahogo de requerimientos, aclaraciones y en
+                                general todas las gestiones necesarias para proceder a la extinción de la institución.
+                                <br/>
+                                <b>6. SEÑALAMIENTO DE DOMICILIO Y PERSONAS PARA OÍR Y RECIBIR NOTIFICACIONES Y/O
+                                    DOCUMENTOS RELATIVOS AL PROCEDIMIENTO DE EXTINCIÓN Y LIQUIDACIÓN DE
+                                    <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                </b>
+                                <br/>
+                                En desahogo del sexto punto del Orden del Día, el Presidente de la Sesión,
+                                <t t-esc="o.six_point"/>
+                                , manifiesta que es necesario señalar domicilio y persona(s) para oír y recibir
+                                notificaciones que deriven en su caso, del procedimiento de extinción de la Institución.
+                                Por lo que los presentes por unanimidad de votos aprueban el siguiente:
+                                <br/>
+                                <br/>
+                                <b>
+                                    -----------------------------------------------------------------------ACUERDO-------------------------------------------------------------
+                                </b>
+                                <br/>
+                                <br/>
+                                Se señala como domicilio para oír y recibir notificaciones el inmueble ubicado en
+                                <t t-esc="o.address_notif"/>
+                                y se autoriza conjunta o indistintamente para tales efectos al (los) (CC.)
+                                <t t-esc="o.c_c_session"/>
+                                <br/>
+                                En virtud de no existir ningún otro punto que tratar, se dio por concluida la presente
+                                Sesión, siendo las
+                                <t t-esc="hours_two"/>
+                                horas con
+                                <t t-esc="o.minutes_two"/>
+                                del día en que se actúa, y habiendo permanecido todos los asistentes hasta el final de
+                                la misma, razón por la que se levanta la presente acta, firmando al calce para
+                                constancia el Presidente y Secretario de la Sesión, adjuntando la lista de Asistencia
+                                con la firma autógrafa de los miembros del Patronato que en ella actuaron.
+                            </p>
+
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <div style="width:50%;display:inline-block;float:left;">
+                                    <center style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">
+                                        <t t-esc="o.name_and_sign_one"/>
+                                    </center>
+                                    <center>____________________</center>
+                                    <center>
+                                        <b style="font-family:Source Sans Pro;line-height:1 cm;">(NOMBRE Y FIRMA)</b>
+                                    </center>
+                                </div>
+                                <div style="width:50%;display:inline-block;float:right;">
+                                    <center style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">
+                                        <t t-esc="o.name_and_sign_two"/>
+                                    </center>
+                                    <center>____________________</center>
+                                    <center>
+                                        <b style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">(NOMBRE Y FIRMA)</b>
+                                    </center>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <b>LISTA DE ASISTENCIA DE LA SESIÓN EXTRAORDINARIA DE
+                                    <t t-esc="o.RefidSolicitudM.get_company_name()"/>
+                                </b>
+                                CELEBRADA EL
+                                <t t-if="o.final_assist">
+                                    <t t-esc="o.final_assist.strftime('%d de %B del año %Y')"
+                                       t-field-options='{"format": "dd/MM/yyyy"}'/>
+                                </t>
+                            </p>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Nota: PONER A TODOS LOS PRESENTES INCLUSIVE SI HAY INVITADOS
+                            </p>
+
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <div style="width:50%;display:inline-block;float:left;">
+                                    <center style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">
+                                        <t t-esc="o.name_and_sign_tree"/>
+                                    </center>
+                                    <center>____________________</center>
+                                    <center>
+                                        <b style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">(NOMBRE Y FIRMA)</b>
+                                    </center>
+                                </div>
+                                <div style="width:50%;display:inline-block;float:right;">
+                                    <center style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">
+                                        <t t-esc="o.name_and_sign_four"/>
+                                    </center>
+                                    <center>____________________</center>
+                                    <center>
+                                        <b style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">(NOMBRE Y FIRMA)</b>
+                                    </center>
+                                </div>
+                            </div>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <div style="width:50%;display:inline-block;float:left;">
+                                    <center style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">
+                                        <t t-esc="o.name_and_sign_five"/>
+                                    </center>
+                                    <center>____________________</center>
+                                    <center>
+                                        <b style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">(NOMBRE Y FIRMA)</b>
+                                    </center>
+                                </div>
+                                <div style="width:50%;display:inline-block;float:right;">
+                                    <center style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">
+                                        <t t-esc="o.name_and_sign_six"/>
+                                    </center>
+                                    <center>____________________</center>
+                                    <center>
+                                        <b style="font-family:Source Sans Pro;font-size:16px;line-height:1 cm;">(NOMBRE Y FIRMA)</b>
+                                    </center>
+                                </div>
+                            </div>
+
+
+                            <div class="footer">
+
+                                <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/pie.jpg" width="120%" style="margin-left:-50px;"/>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

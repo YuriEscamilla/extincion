@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="formato_oficio_requerimiento"
+            model="tram.req.extincion"
+            string="Formato oficio requerimiento"
+            menu="False"
+            report_type="qweb-pdf"
+            name="extincion.formato_oficio_requerimiento_report"
+            file="extincion.formato_oficio_requerimiento_report"
+            paperformat="extincion.cdmx_estadosfin_paper_format"/>
+
+</odoo>

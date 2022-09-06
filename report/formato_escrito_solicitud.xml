@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="formato_escrito_solicitud"
+            model="tram.sol.extincion"
+            string="Formato escrito solicitud"
+            menu="False"
+            report_type="qweb-pdf"
+            name="extincion.formato_escrito_solicitud_report"
+            file="extincion.formato_escrito_solicitud_report"
+            paperformat="extincion.cdmx_estadosfin_paper_format"/>
+
+</odoo>

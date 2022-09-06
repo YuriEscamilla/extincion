@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<odoo>
+   <!-- RECORD QUE MANDA  A LLAMAR LA VENTANA DE SOLICITUDES-->
+    <record id="solicitud_extincion_action" model="ir.actions.act_window">
+        <field name="name">Contratos de extinción</field>
+        <field name="res_model">tram.sol.extincion</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">{'default_create_uid':uid}</field>
+        <field name="domain">[('create_uid','=',uid),('status','in',('enviado','pendiente','notificado'))]</field>
+
+    </record>
+
+    <record id="requerimiento_edo_fin_action" model="ir.actions.act_window">
+        <field name="name">extincion.requerimiento.view</field>
+        <field name="res_model">tram.req.extincion</field>
+        <field name="view_mode">form</field>
+    </record>
+
+    <record id="view_estatus_asunto_search" model="ir.ui.view">
+        <field name="name">filtro_estatus_asunto</field>
+        <field name="model">tramite.gestion.extincion</field>
+        <field name="arch" type="xml">
+            <search string="Estatus Asunto">
+                <filter name="autorizado" string="Autorizado" domain="[('EstatusAsunto','=','autorizado')]"/>
+                <filter name="rechazado" string="Cancelado" domain="[('EstatusAsunto','=','rechazado')]"/>
+                <filter name="activo" string="Activo" domain="[('EstatusAsunto','=','activo')]"/>
+
+                <group expand="0" string="Group by">
+                    <filter string="Estatus asunto" name="estatus" domain="[]" context="{'group_by':'EstatusAsunto'}"/>
+                </group>
+            </search>
+
+        </field>
+    </record>
+
+    <!-- RECORD QUE MANDA  A LLAMAR LA VENTANA DE SOLICITUDES-->
+    <record id="gestion_tramites_action" model="ir.actions.act_window">
+        <field name="name">Gestión de trámite Extinción</field>
+        <field name="res_model">tramite.gestion.extincion</field>
+        <field name="view_mode">kanban,tree</field>
+        <field name="domain">[('RefIdUsuario','=',uid)]</field><!--,('EstatusAsunto','=','activo')] -->
+        <field name="context">{'search_default_activo':1}</field>
+        <field name="search_view_id" ref="view_estatus_asunto_search"/>
+    </record>
+
+    <!--RECORD QUE MANDA A LLAMAR EL TIEMPO DE RESPUESTA POR CADA TRAMTIE EN SUS ETAPAS -->
+    <record id="gestion_tiempo_action" model="ir.actions.act_window">
+        <field name="name">gestiontramitesextincion.tiemporespuesta</field>
+        <field name="res_model">tiempos.tramite.extincion</field>
+        <field name="view_mode">tree</field>
+
+    </record>
+
+
+    <menuitem name="Contratos de extinción" id="registro_iap_menu" sequence="0" web_icon="extincion,static/description/icon.png" />
+    <!-- MENU IAP-->
+    <menuitem name="Solicitudes" id="registro_institucion_menu" parent="registro_iap_menu" action="solicitud_extincion_action" sequence="1" groups="solicitud_tramite_group_user"/>
+    <menuitem name="Gestión de Solicitudes" id="gestion_institucion_menu" parent="registro_iap_menu" action="gestion_tramites_action"  sequence="2" groups="gestion_tramites_group_user"/>
+
+</odoo>
+

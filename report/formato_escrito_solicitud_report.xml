@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="formato_escrito_solicitud_report">
+        <xpath expr="//div[@class='page']" position="attributes">
+                <attribute name="style">font-family: 'Source Sans Pro', sans-serif;</attribute>
+        </xpath>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                        <div>
+                            <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/encabezado.jpg" width="120%" style="margin-left:-50px;margin-top:-10mm;"/>
+                        </div>
+
+                        <div style="width:50%%;text-align:left;position:relative;right:-377px;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                            <p style="text-align:right;">Ciudad de México a
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d de %B de %Y')"/>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="width:50%%;position:relative;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <b>JUNTA DE ASISTENCIA PRIVADA
+                                    DEL DISTRITO FEDERAL</b>
+                                <br/>
+                                PRESENTE:
+                            </p>
+                        </div>
+                        <div style="position:relative; widht:100%%; line-height:25px; text-align:justify;">
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <t t-esc="o.applicant"/>, en mi carácter de <t t-esc="o.in_my_character"/> de <b><t t-esc="o.get_company_name()"/></b>,
+                                personería que acredito en términos <t t-esc="o.prove_in_terms"/>
+                                por medio del presente vengo ante esa H. Junta de Asistencia Privada del Distrito
+                                Federal, a solicitar se lleven a cabo las gestiones necesarias para proceder a la
+                                extinción de la Institución que nos ocupa, debido a que la situación actual de ésta
+                                actualiza la hipótesis prevista en la fracción I del artículo 30 de la Ley en cita.
+                            </p>
+
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Lo anterior, en cumplimiento al Acuerdo recaído al Punto número 3 del Orden del Día de
+                                la sesión extraordinaria celebrada el <t t-if="o.celebrate_on"><t t-esc="o.celebrate_on.strftime('%d/%m/%Y')"
+                               t-field-options='{"format": "dd/MM/yyyy"}'/></t>
+                                por el Patronato de <b><t t-esc="o.get_company_name()"/></b>
+
+                            </p>
+                            <!-- Pendiente lo del centro -->
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Aunado a lo anterior y como lo dispone el artículo 39 del Reglamento de la Ley de
+                                Instituciones de Asistencia Privada para el Distrito Federal, se adjunta a la presente
+                                los siguiente:
+                            </p>
+                            <div style="width:60%%;text-align:left;position:relative;right:-200px;font-family:Source Sans Pro; font-size:16px;text-align:justify;">
+                                 <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                    Original del Acta de Sesión Extraordinaria de Patronato, celebrada el día <t t-if="o.celebrate_on_day"><t t-esc="o.celebrate_on_day.strftime('%d/%m/%Y')"
+                               t-field-options='{"format": "dd/MM/yyyy"}'/></t>, en la que se acordó entre otro puntos del Órden del Día, la extinción de <b><t t-esc="o.get_company_name()"/></b>
+                                </p>
+                                <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">Original de la Lista de Asistencia a la sesión extraordinaria de Patronos, celebrada el día
+                                     <t t-if="o.assist_celebrate_on"><t t-esc="o.assist_celebrate_on.strftime('%d/%m/%Y')"
+                               t-field-options='{"format": "dd/MM/yyyy"}'/></t> debidamente firmada por las personas que en la misma estuvieron presentes;
+                                </p>
+                                <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                    Estados Financieros y Balanza de Comprobación mensuales debidamente firmados y
+                                    rubricados por el representante legal de la Institución; así como, por el
+                                    responsable de la información financiera que reflejan cifras al día <t t-if="o.financial_information"><t t-esc="o.financial_information.strftime('%d/%m/%Y')"
+                               t-field-options='{"format": "dd/MM/yyyy"}'/></t>
+                                </p>
+                                <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                    Escrito por el que el <t t-esc="o.write_by_him"/> acepta el cargo de liquidador conferido
+                                    por parte de la Institución y en el que manifiesta BAJO PROTESTA DE DECIR VERDAD,
+                                    cumplir con los requisitos que para el efecto establece el artículo 36 de la Ley de
+                                    Instituciones de Asistencia Privada para el Distrito Federal;
+                                </p>
+                                <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                    Escrito por el que se manifiesta estar al corriente de sus obligaciones legales y
+                                    fiscales por parte de la Institución
+                                    <b>acompañando las constancias correspondientes.</b>
+                                </p>
+                            </div>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">Por último, y como fue señalado en el Acta de Sesión que nos ocupa, se reitera como
+                                domicilio para oír y recibir notificaciones y documentos relativos a la solicitud de
+                                mérito, el ubicado en <t t-esc="o.located_in"/> y autorizando para tales efectos de
+                                manera conjunta e indistintamente a <t t-esc="o.authorizing"/>
+                            </p>
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Sin más por el momento, aprovecho la ocasión para enviar un cordial saludo.
+
+                            </p>
+                            <p style="text-align:center;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <center>
+                                    <b>Atentamente</b>
+                                </center>
+                                <br/>
+                                <center>_____________________________________</center>
+                            </p>
+
+                            <p style="text-align:center;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <center>
+                                    <b><t t-esc="o.applicant"/></b>
+                                </center>
+
+                            </p>
+                            <br/>
+                            <div class="footer">
+
+                                <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/pie.jpg" width="120%" style="margin-left:-50px;"/>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

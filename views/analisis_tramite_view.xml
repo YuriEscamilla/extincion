@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="analisistramite_form_view" model="ir.ui.view">
+        <field name="name">analisis.extincion.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">tram.ana.extincion</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+
+        <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="Analisis del tramite" id="analisis">
+
+                <sheet>
+                    <div align="center" class="alert alert-info">
+                        <h3>Análisis de la Solicitud</h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="observaciones" string="Observaciones" required="1"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="attachment" widget="many2many_binary" class="oe_inline" options="{'accepted_file_extensions': '.pdf'}"/>
+                        </group>
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+
+    </record>
+
+</odoo>

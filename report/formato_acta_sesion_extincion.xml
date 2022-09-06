@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report id="formato_acta_sesion_extincion"
+            model="tramite.gestion.extincion"
+            string="Imprimir Acta sesion extincion de parte"
+            menu="False"
+            report_type="qweb-pdf"
+            name="extincion.formato_acta_sesion_extincion_report"
+            file="extincion.formato_acta_sesion_extincion_report"
+            paperformat="extincion.cdmx_estadosfin_paper_format"/>
+
+</odoo>

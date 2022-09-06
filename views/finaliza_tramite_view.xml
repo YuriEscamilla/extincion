@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="finaliza_tramite_form_view" model="ir.ui.view">
+        <field name="name">extincion.finaliza.tramite.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">tramite.gestion.extincion</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+        <field name="priority">2</field>
+        <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="alta tramite" id="altatramite" >
+
+                <header align="center">
+                    <button name="autorizado" type="object" string="Autorizado" class="btn-success"/>
+
+                    <button name="cancelado" type="object" string="Cancelado" class="btn-danger"/>
+                    <button name="reporte_escrito_liquidador" type="object" string="Imprimir Escrito liquidador bajo protesta de decir la verdad" class="btn-success" attrs="{'invisible': [('formats_asesor','=','meeting_minutes')]}"/>
+                    <button name="reporte_acta_sesion_extincion" type="object" string="Imprimir Acta sesion extincion de parte" class="btn-success" attrs="{'invisible': [('formats_asesor','!=','meeting_minutes')]}"/>
+
+                    <field name="EstatusAsunto"  widget="statusbar" statusbar_visible="pendiente,enviado"/>
+
+                </header>
+                <sheet>
+                    <div align="center" class="alert alert-info">
+                        <h3>Resultado final del trámite</h3>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="year" invisible="1"/>
+                            <field name="fechadocumento" required="1" widget="date"/>
+                            <field name="observaciones" required="1"/>
+                            <field name="formats_asesor"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Formato Escrito liquidador bajo protesta de decir la verdad" attrs="{'invisible': ['|',('formats_asesor','=','meeting_minutes'),('formats_asesor','=',False)]}">
+                            <group>
+                                <group>
+                                    <field name="job_title"/>
+                                    <field name="issued"/>
+                                    <field name="professional_license"/>
+                                </group>
+                                <group>
+                                    <field name="located_in"/>
+                                    <field name="c_c"/>
+                                    <field name="atentamente"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Formato Acta sesion de parte" attrs="{'invisible': ['|',('formats_asesor','!=','meeting_minutes'),('formats_asesor','=',False)]}">
+                            <group>
+                                <group>
+                                    <field name="hours"/>
+                                    <field name="minutes"/>
+                                    <field name="day"/>
+                                    <field name="month"/>
+                                    <field name="year_session"/>
+                                </group>
+                                <group>
+                                    <field name="located_in_liq"/>
+                                    <field name="session"/>
+                                    <field name="position"/>
+                                    <field name="secretary"/>
+                                    <field name="position_two"/>
+                                </group>
+                                <group>
+                                    <field name="cumulative_figures"/>
+                                    <field name="cumulative_figures_two"/>
+                                    <field name="order_two"/>
+                                    <field name="cumulative_figures_tree"/>
+                                    <field name="votes"/>
+                                </group>
+                                <group>
+                                    <field name="cumulative_figures_four"/>
+                                    <field name="president_session"/>
+                                    <field name="justify_session"/>
+                                    <field name="president_session_point_four"/>
+                                    <field name="president_session_point_five"/>
+                                    <field name="liquidator_design"/>
+                                </group>
+                                <group>
+                                    <field name="appointed_liquidator"/>
+                                    <field name="delegates"/>
+                                    <field name="six_point"/>
+                                    <field name="address_notif"/>
+                                    <field name="c_c_session"/>
+                                </group>
+                                <group>
+                                    <field name="hours_two"/>
+                                    <field name="minutes_two"/>
+                                    <field name="name_and_sign_one"/>
+                                    <field name="name_and_sign_two"/>
+                                    <field name="name_and_sign_tree"/>
+                                </group>
+                                <group>
+                                    <field name="name_and_sign_four"/>
+                                    <field name="name_and_sign_five"/>
+                                    <field name="name_and_sign_six"/>
+                                    <field name="final_assist"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                    <group>
+                       <field name="attachment" widget="many2many_binary" class="oe_inline" options="{'accepted_file_extensions': '.pdf'}"/>
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+     <record id="finaliza_tramite_lectura_form_view" model="ir.ui.view">
+        <field name="name">extincion.finaliza.tramite.form.view</field><!--NOMBRE DE LA VISTA -->
+        <field name="model">tramite.gestion.extincion</field><!-- UBICACION Y NOMBRE DEL MODULO -->
+        <field name="priority">1</field>
+         <field name="arch" type="xml">
+            <!-- TIPO DE VISTA FORM-->
+            <form string="alta tramite" id="altatramite" edit="false" create="false">
+
+                <header align="center">
+                    <field name="EstatusAsunto"  widget="statusbar" statusbar_visible="pendiente,enviado"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Autorizado" bg_color="bg-success" attrs="{'invisible': [('EstatusAsunto','!=','autorizado')]}"/>
+
+                    <widget name="web_ribbon" title="Rechazado" bg_color="bg-danger" attrs="{'invisible': [('EstatusAsunto','!=','rechazado')]}"/>
+                    <div class="alert alert-info" align="center">
+                        <h4>Resultado de la solicitud de trámite<br></br>
+                        <field name="RefIdTipoTram" readonly="1" options="{'no_open': True}"/>
+                        </h4>
+                    </div><br></br>
+                    <group>
+                        <field name="fechadocumento" required="1" widget="date"/>
+                    <field name="observaciones"/>
+                    </group>
+                    <group>
+                       <field name="attachment" widget="many2many_binary" class="oe_inline" options="{'accepted_file_extensions': '.pdf'}"/>
+                    </group>
+
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+</odoo>

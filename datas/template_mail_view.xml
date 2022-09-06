@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data noupdate="0">
+        <!--SOLICITUD DE LA INSTITUCION-->
+        <record id="solicitud_correo_extincion" model="mail.template">
+           <field name="name">Solicitud correo de contratos de extinción</field><!-- -->
+           <field name="email_from">soportedesk@jap.cdmx.gob.mx</field><!--${object.user_id.email} -->
+           <field name="subject">Solicitud de ${object.tipotram.descripcion}</field>
+           <field name="email_to">${object.correonotif};${object.correosavisos};${object.correosavisosjefes} </field><!--campo del usuario que existe en el modulo de users: ${object.partner_id.email}-->
+           <field name="model_id" ref="extincion.model_tram_sol_extincion"/><!--MODULO Y NOMBRE DEL MODELO (TABLA) -->
+           <field name="auto_delete" eval="True"/><!--SE ENVIA Y SE BORRA EL REGISTRO, NO SE GUARDA EN LA CUENTA SALIENTE -->
+
+            <!-- ${object.correosavisos} -->
+           <field name="body_html">
+               <![CDATA[
+               <img class="img-fluid o_we_custom_image d-block mx-auto" src="https://www.jap.cdmx.gob.mx/portal/images/sampledata/logosicos/logox.png?access_token=2c43a90d-b4be-4361-9183-97f227560849" style="width: 50%;" data-original-title="" title="" aria-describedby="tooltip975751"><br><br>
+
+               <div class="card">
+
+                <div class="card-body">
+                <div style="text-align: left;">
+                    <div style="text-align: right;"><b>Folio: ${object.id}</b><br></div><br>
+                En representación de la Institución <b>${object.create_uid.company_id.name}</b>, el usuario ${object.create_uid.display_name} envió a través de la plataforma Digital de la JAPCDMX una solicitud con la siguiente información:<br><br>
+
+                <b>
+                    </b><table align="center">
+                    <tbody><tr>
+                        <td><b>Tipo de Trámite:</b></td>
+                        <td>${object.tipotram.descripcion}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Folio:</b></td>
+                        <td align="center">${object.id}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><b>Correo de contacto por parte de la Junta</b></td>
+                    </tr>
+                    <tr>
+                    <td style="text-align:center;" colspan="2"><b>${object.correosavisos}</b></td></tr><tr style="text-align:right;">
+
+                </tr></tbody></table>
+                <br><br>
+                En breve recibirá información a través del <b>Buzón Institucional</b> la resolución de su solicitud.
+            </div>
+            </div>
+
+            ]]></field>
+        </record>
+
+
+        <!--SOLICITUD DE REQUERIMIENTO -->
+        <record id="solicitud_requerimiento" model="mail.template">
+           <field name="name">Solicitud de requerimiento</field><!-- -->
+           <field name="email_from">soportedesk@jap.cdmx.gob.mx</field><!--${object.user_id.email} -->
+           <field name="subject">Solicitud de Requerimiento </field>
+           <field name="email_to">${object.RefidSolicitud.correonotif}</field><!--campo del usuario que existe en el modulo de users: ${object.partner_id.email}-->
+           <field name="model_id" ref="extincion.model_tram_req_extincion"/><!--MODULO Y NOMBRE DEL MODELO (TABLA) -->
+           <field name="auto_delete" eval="True"/><!--SE ENVIA Y SE BORRA EL REGISTRO, NO SE GUARDA EN LA CUENTA SALIENTE -->
+           <!--<field name="report_template" ref="website_helpdesk_support_ticket.print_support_request"/>--><!--EN CASO DE MANDAR ADJUNTO CON EL ID DEL CAMPO ATACHMENT -->
+            <!--con el % le decimos al odoo que estaremos usando codigo python.
+             % if object.company_id.website:
+                   <div>
+                       Web :&nbsp;<a href="${object.company_id.website}">${object.company_id.website}</a>
+                   </div>
+               %endif
+             -->
+           <field name="body_html">
+               <![CDATA[
+               <img class="img-fluid o_we_custom_image d-block mx-auto" src="https://www.jap.cdmx.gob.mx/portal/images/sampledata/logosicos/logox.png?access_token=2c43a90d-b4be-4361-9183-97f227560849" style="width: 50%;" data-original-title="" title="" aria-describedby="tooltip975751"><br><br>
+
+               <div class="card">
+                    <div class="card-body">
+                        <div style="text-align: left;">
+                        En relación a su solicitud del trámite de <b>${object.RefidSolicitud.tipotram.descripcion}</b>, se realizan las siguientes observaciones:<br><br>
+
+                            <b>Observaciones:</b> ${object.observaciones}<br><br><br>
+
+                            El requerimiento mencionado podrá consultarlo en el <b>Buzón Institucional</b>.
+                        </div>
+                    </div>
+                </div>
+            ]]></field>
+        </record>
+
+
+        <!--RESPONDER REQUERIMIENTO -->
+        <record id="requerimiento_respondido" model="mail.template">
+           <field name="name">Requerimiento respondido correo CONTRATOS DE EXTINCIÓN</field><!-- -->
+           <field name="email_from">soportedesk@jap.cdmx.gob.mx</field><!--${object.user_id.email} -->
+           <field name="subject">Respuesta de Requerimiento - ${object.tipotram.descripcion} </field>
+           <field name="email_to">${object.correosavisos};${object.correosavisosjefes}</field><!--campo del usuario que existe en el modulo de users: ${object.partner_id.email}-->
+           <field name="model_id" ref="extincion.model_tram_sol_extincion"/><!--MODULO Y NOMBRE DEL MODELO (TABLA) -->
+           <field name="auto_delete" eval="True"/><!--SE ENVIA Y SE BORRA EL REGISTRO, NO SE GUARDA EN LA CUENTA SALIENTE -->
+           <field name="body_html">
+               <![CDATA[
+               <img class="img-fluid o_we_custom_image d-block mx-auto" src="https://www.jap.cdmx.gob.mx/portal/images/sampledata/logosicos/logox.png?access_token=2c43a90d-b4be-4361-9183-97f227560849" style="width: 50%;" data-original-title="" title="" aria-describedby="tooltip975751"><br><br>
+
+                   <div class="card">
+                    <div class="card-body">
+                        <div style="text-align: left;">
+                        La Institución  <b>${object.create_uid.company_id.name}</b>, ha dado respuesta al requerimiento solicitado del Folio <b>${object.id}</b> relacionado al trámite de ${object.tipotram.descripcion}.
+                        <br><br><br>
+                        Deberá dar por contestado la resolución del trámite.
+                        </div>
+                    </div>
+                </div>
+            ]]></field>
+        </record>
+
+
+       <!-- TERMINO DE FOLIO-->
+       <record id="solicitud_correo_extincion_termino" model="mail.template">
+           <field name="name">Solicitud correo de Contratos de extinción termino</field><!-- -->
+           <field name="email_from">soportedesk@jap.cdmx.gob.mx</field><!--${object.user_id.email} -->
+           <field name="subject">Resolución de ${object.tipotram.descripcion}</field>
+           <field name="email_to">${object.correonotif}</field><!--campo del usuario que existe en el modulo de users: ${object.partner_id.email}-->
+           <field name="model_id" ref="extincion.model_tram_sol_extincion"/><!--MODULO Y NOMBRE DEL MODELO (TABLA) -->
+           <field name="auto_delete" eval="True"/><!--SE ENVIA Y SE BORRA EL REGISTRO, NO SE GUARDA EN LA CUENTA SALIENTE -->
+
+            <!-- ${object.correosavisos} -->
+           <field name="body_html">
+               <![CDATA[
+               <img class="img-fluid o_we_custom_image d-block mx-auto" src="https://www.jap.cdmx.gob.mx/portal/images/sampledata/logosicos/logox.png?access_token=2c43a90d-b4be-4361-9183-97f227560849" style="width: 50%;" data-original-title="" title="" aria-describedby="tooltip975751"><br><br>
+
+               <div class="card">
+
+                <div class="card-body"><div style="text-align: left;">
+                <div style="text-align: right;"><b>Folio: ${object.id}</b><br></div><br>
+
+                En respuesta a su solicitud que realizo a través de la plataforma Digital de la JAPCDMX.
+
+                <b>
+                    </b><table align="center">
+                    <tbody><tr>
+                        <td><b>Tipo de Trámite:</b></td>
+                        <td>${object.tipotram.descripcion}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Folio:</b></td>
+                        <td align="center">${object.id}</td>
+                    </tr>
+                    </tbody></table>
+                <br><br>
+                La resolucion de su solicitud, podrá visualizarla en el <b>Buzón Institucional</b>.
+            </div>
+            </div>
+
+            ]]></field>
+        </record>
+    </data>
+</odoo>

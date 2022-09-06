@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="formato_escrito_liquidador_report">
+          <xpath expr="//div[@class='page']" position="attributes">
+                <attribute name="style">font-family: 'Source Sans Pro', sans-serif;</attribute>
+        </xpath>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <div class="page">
+                          <div>
+                            <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/encabezado.jpg" width="120%" style="margin-left:-50px;margin-top:-10mm;"/>
+                        </div>
+                        <div style="width:50%%;text-align:left;position:relative;right:-377px;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                            <p style="text-align:right;">Ciudad de México a
+                                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d de %B de %Y')"/>
+                            </p>
+                        </div>
+                        <div>
+                            <p style="width:50%%;position:relative;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <b>JUNTA DE ASISTENCIA PRIVADA DEL DISTRITO FEDERAL.</b>
+                                <br/>
+                                Calderón de la Barca N° 92, Col. Polanco, Alcaldía Miguel Hidalgo, C.P. 11560, Ciudad de
+                                México.
+                            </p>
+                        </div>
+                        <div style="position:relative; widht:100%%; line-height:25px; text-align:justify;">
+
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Por medio de la presente, manifiesto <b>BAJO PROTESTA DE DECIR VERDAD</b>  y de
+                                conformidad con lo ordenado por el artículo 36 de la Ley de Asistencia Privada del
+                                Distrito Federal, que cumplo con todos los requisitos establecidos en dicho numeral para
+                                fungir como liquidador de
+                                <t t-esc="o.RefidSolicitudM.get_company_name()"/>,
+                                ya que soy mayor de edad, en pleno ejercicio de mis derechos civiles; cuento con
+                                título profesional de
+                                <t t-esc="o.job_title"/>
+                                expedido por la
+                                <t t-esc="o.issued"/>
+                                y cédula profesional número
+                                <t t-esc="o.professional_license"/>
+                                expedida por la Dirección General de Profesiones adscrita a la Secretaría de Educación
+                                Pública que me autoriza el ejercicio de la profesión en comento, (se acompaña copia
+                                simple de ambos documentos.)
+
+                            </p>
+
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                De igual forma, manifiesto contar con experiencia suficiente en procesos de liquidación;
+                                gozar de buena reputación y no haber sido condenado por delito doloso; no soy miembro de
+                                ningún patronato, ni funcionario o empleado de alguna Institución de Asistencia Privada,
+                                ni soy cónyuge de ningún miembro de patronato, funcionario o empleado de ninguna
+                                Institución de Asistencia Privada; ni tengo parentesco por consanguinidad o afinidad o
+                                en línea recta sin limitación de grados, colateral dentro del cuarto grado o civil con
+                                los fundadores, miembros del patronato, funcionarios o empleados de la Institución de
+                                Asistencia Privada sujeta a liquidar; no soy acreedor ni deudor de la Institución de
+                                Asistencia Privada; ni tengo interés directo o indirecto respecto de ésta.
+                            </p>
+
+                            <p style="font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                Finalmente, señalo como domicilio para recibir todo tipo notificaciones el ubicado en
+                                <t t-esc="o.located_in"/>
+                                Ciudad de México, y autorizando para tal efecto a los CC. <t t-esc="o.c_c"/>
+                            </p>
+                            <p style="text-align:center;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                                <center>
+                                    <b>Atentamente</b>
+                                </center>
+                                <center><t t-esc="o.atentamente"/></center>
+                                <center>_____________________________________</center>
+                            </p>
+                             <div class="footer">
+
+                                <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/pie.jpg" width="120%" style="margin-left:-50px;"/>
+                            </div>
+
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

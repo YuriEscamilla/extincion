@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--CATEGORIA DE SEGURIDAD  -->
+    <record id="module_extincion_category" model="ir.module.category">
+        <field name="name">CONTRATOS DE EXTINCIÓN</field>
+    </record>
+    <!-- SOLICITUD-->
+    <record id="solicitud_tramite_group_user" model="res.groups">
+        <field name="name">Solicitud de tramite</field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <record id="solicitud_lectura_tramite_group_user" model="res.groups">
+        <field name="name">Solicitud de tramite lectura</field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <record id="requerimiento_group_user" model="res.groups">
+        <field name="name">Requerimiento de contratos de extinción</field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <record id="analisis_group_user" model="res.groups">
+        <field name="name">Analisis de tramite extinción</field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+    <record id="ficha_group_user" model="res.groups">
+        <field name="name">Ficha ejecutiva de tramite extinción</field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+
+    <record id="gestion_tramites_group_user" model="res.groups">
+        <field name="name">Gestion de Solicitudes extinción </field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+
+    <record id="tiempo_tramite_group_user" model="res.groups">
+        <field name="name">Tiempo de Respuesta por Etapa extinción</field>
+        <field name="category_id" ref="module_extincion_category"/>
+        <field name="implied_ids" eval="[(4,ref('base.group_user'))]"/>
+    </record>
+
+</odoo>
