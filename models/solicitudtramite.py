@@ -171,7 +171,7 @@ class solicitud(models.Model):
             for record in self:
                 refidsol = record.id
                 filtros = [('RefIdIAP', '=', iap.id), ('RefIdTipoTram', '=', 11), ('RefidSolicitud', '=', refidsol)]
-                asesor_obj = self.env['tramite.gestion.extincion'].sudo().search(filtros)
+                asesor_obj =  self.env['usuarios.tramite'].sudo().search(filtros)
                 if asesor_obj:
                     record.asesortramite = str(asesor_obj.RefIdUsuario.name)
                 else:
@@ -187,7 +187,7 @@ class solicitud(models.Model):
             for company in usuario.company_ids:
                 iap = company.partner_id
 
-                filtros = [('partner_iap_id', '=', iap.id), ('tipotramite_id', '=', 1)]
+                filtros = [('partner_iap_id', '=', iap.id), ('tipotramite_id', '=', 11)]
                 user_obj = self.env['usuarios.tramite'].sudo().search(filtros)
                 record.correosavisos = user_obj.user_id.login
 
@@ -199,7 +199,7 @@ class solicitud(models.Model):
 
             for company in usuario.company_ids:
                 iap = company.partner_id
-                filtros = [('partner_iap_id', '=', iap.id), ('tipotramite_id', '=', 1)]
+                filtros = [('partner_iap_id', '=', iap.id), ('tipotramite_id', '=', 11)]
                 jefes_tramite = self.env['jefes.tramite'].sudo().search(filtros)
 
                 records = ''
@@ -269,7 +269,7 @@ class solicitud(models.Model):
 
             # HACE UN SELECT A LA TABLA DE USUARIOS TRAMITE, DONDE LA IAP SEA LA QUE ESTA EN SESION Y EL TIPO DE TRAMITE
             # PARA OBTENER EL USUARIO QUE TIENE ASIGNADO PARA ESE TRAMITE
-            filtros = [('partner_iap_id', '=', iap.id), ('tipotramite_id', '=', 1)]
+            filtros = [('partner_iap_id', '=', iap.id), ('tipotramite_id', '=', 11)]
             user_obj = self.env['usuarios.tramite'].sudo().search(filtros)
 
             # SE HACE EL INSERT A LA TABLA DE GESTION DE TRAMITES
