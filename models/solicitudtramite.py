@@ -171,7 +171,7 @@ class solicitud(models.Model):
             for record in self:
                 refidsol = record.id
                 filtros = [('RefIdIAP', '=', iap.id), ('RefIdTipoTram', '=', 11), ('RefidSolicitud', '=', refidsol)]
-                asesor_obj =  self.env['usuarios.tramite'].sudo().search(filtros)
+                asesor_obj = self.env['tramite.gestion.extincion'].sudo().search(filtros)
                 if asesor_obj:
                     record.asesortramite = str(asesor_obj.RefIdUsuario.name)
                 else:

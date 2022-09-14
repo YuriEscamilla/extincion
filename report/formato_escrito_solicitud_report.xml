@@ -8,11 +8,8 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.basic_layout">
                     <div class="page">
-                        <div>
-                            <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/encabezado.jpg" width="120%" style="margin-left:-50px;margin-top:-10mm;"/>
-                        </div>
 
-                        <div style="width:50%%;text-align:left;position:relative;right:-377px;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
+                        <div style="width:50%%;text-align:left;position:relative;right:-337px;font-family:Source Sans Pro; font-size:16px;line-height:1 cm;">
                             <p style="text-align:right;">Ciudad de México a
                                 <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d de %B de %Y')"/>
                             </p>
@@ -98,11 +95,7 @@
                                 </center>
 
                             </p>
-                            <br/>
-                            <div class="footer">
 
-                                <img src="https://www.jap.cdmx.gob.mx/portal/images/headers/pie.jpg" width="120%" style="margin-left:-50px;"/>
-                            </div>
 
 
                         </div>
